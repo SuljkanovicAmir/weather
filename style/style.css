@@ -36,7 +36,9 @@
     font-family: 'Poppins-light';
 
 }
-
+body {
+    height: 100vh;
+}
 
 .container {
     display: grid;
@@ -203,27 +205,32 @@ span.country {
   @media screen and (max-width: 425px){
     .container {
         display: flex;
-        height: 100vh;
         flex-direction: column;
         align-items: center;
-        padding-top: 40px;
+        padding-top: 30px;
         gap: 30px;
         place-content: unset;
         background-size: cover;
-        overflow: hidden;
+        overflow-x: hidden;
     }
     .formDiv,
     .results {
         position: unset;
     }
     .results {
-        min-height: 400px;
+        min-height: 350px;
         min-width: 101%;
         border-radius: unset;
         border: unset;
         font-size: 1.3em;
         padding: 20px 30px;
-        margin-top: 50px;
+        margin-top: 20px;
+    }
+    .weather {
+        font-size: 1.5em;
+    }
+    .temperature {
+      font-size:   1.5em;
     }
     .weeklyForecast {
         width: 100%;
@@ -236,12 +243,25 @@ span.country {
         backdrop-filter: unset;
     }
     .weather-forecast-item {
-        margin-left: auto;
+        min-height: 165px;
         min-width: 140px;
         background: linear-gradient(135deg, rgb(162 122 122 / 50%), rgba(124, 98, 98, 0.2))
     }
     .weeklyForecast::-webkit-scrollbar { 
         display: none;  /* Safari and Chrome */
+    }
+    .submitSearch {
+        height: 37px;
+        width: 37px;
+    }
+    .searchImg {
+        height: 25px;
+        width: 25px;
+    }
+    input[type='text'] {
+        padding: 7px 14px;
+        max-width: 170px;
+        font-size: 0.9em;
     }
   }
 
