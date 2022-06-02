@@ -55,25 +55,28 @@
 .formDiv form {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 3px;
 }
+
 input[type='text'] {
-    border-radius: 20px;
+    border-radius: 15px;
     border: 1px solid black;
     padding: 10px 15px;
     font-size: 1em;
 }
+
 .submitSearch {
-    border-radius: 50px;
-    height: 50px;
-    width: 50px;
+    border-radius: 15px;
+    height: 47px;
+    width: 47px;
     cursor: pointer;    
     display: flex;
     justify-content: center;
     align-items: center;
     border: none;
-    background-color: #6e30f2;
+    background-color: #9f9f9f;
 }
+
 .searchImg {
     height: 30px;
     width: 30px;
@@ -143,13 +146,102 @@ span.country {
     justify-content: space-between;
 }
 
+.weeklyForecast {
+    width: 100%;
+    display: flex;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    justify-content: space-evenly;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2));
+    backdrop-filter: blur(10px);
+}
+
+
 .weather-forecast-item {
-    min-height: 200px;
+    min-height: 180px;
     min-width: 150px;
     display: flex;
-    border: 1px solid white;
-    position: absolute;
     color: white;
-    left: 2%;
-    bottom: 2%;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 15px;
+    padding: 10px;
 }
+
+.weather-today {
+    background: linear-gradient(135deg, rgb(162 122 122 / 50%), rgba(124, 98, 98, 0.2));
+}
+
+.night {
+    margin-top: auto;
+}
+.day {
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 15px;
+}
+
+
+
+
+
+.weather-forecast-item:hover {
+    transform: scale(1.1);
+  }
+
+  .weatherIcon {
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 60px;
+    width: 60px;
+    align-self: center;
+    filter: contrast(0.6);
+  }
+
+
+  @media screen and (max-width: 425px){
+    .container {
+        display: flex;
+        height: 100vh;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 40px;
+        gap: 30px;
+        place-content: unset;
+        background-size: cover;
+        overflow: hidden;
+    }
+    .formDiv,
+    .results {
+        position: unset;
+    }
+    .results {
+        min-height: 400px;
+        min-width: 101%;
+        border-radius: unset;
+        border: unset;
+        font-size: 1.3em;
+        padding: 20px 30px;
+        margin-top: 50px;
+    }
+    .weeklyForecast {
+        width: 100%;
+        display: flex;
+        gap: 100%;
+        padding: 20px 30% 20px 30%;
+        justify-content: unset;
+        overflow: auto;
+        background: unset;
+        backdrop-filter: unset;
+    }
+    .weather-forecast-item {
+        margin-left: auto;
+        min-width: 140px;
+        background: linear-gradient(135deg, rgb(162 122 122 / 50%), rgba(124, 98, 98, 0.2))
+    }
+    .weeklyForecast::-webkit-scrollbar { 
+        display: none;  /* Safari and Chrome */
+    }
+  }
+
