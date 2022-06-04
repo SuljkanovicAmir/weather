@@ -123,6 +123,7 @@ span.country {
     align-self: flex-end;
     padding-top: 20px;
     font-size: 0.7em;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .weather {
@@ -207,12 +208,15 @@ span.country {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding-top: 30px;
-        gap: 30px;
+        padding-top: 50px;
         place-content: unset;
         background-size: cover;
         overflow-x: hidden;
-        justify-content: space-between;
+        background: linear-gradient(to bottom, #36b3d7, #0e334e);
+    }
+    .formDiv form {
+        height: 41px;
+        gap: unset;
     }
     .formDiv,
     .results {
@@ -224,16 +228,26 @@ span.country {
         border-radius: 15px;
         border: unset;
         font-size: 1.3em;
-        padding: 20px 30px;
-        margin-top: 20px;
-        min-width: unset;
+        padding: 10px 10px;
+        margin-top: 60px;
+        min-width: 80%;
         word-wrap: break-word;
+        box-shadow: 0px 0px 2px 0px rgb(0 0 0 / 21%);
+        box-shadow: unset;
+        background: unset;
+        backdrop-filter: unset;
     }
     .weather {
         font-size: 1.5em;
+        font-weight: 400;
     }
     .temperature {
-      font-size:   1.5em;
+        font-size: 2.5em;
+        font-weight: bold;
+        font-family: unset;
+    }
+    .time {
+        color: rgba(255, 255, 255, 0.5);
     }
     .weeklyForecast {
         width: 100%;
@@ -245,6 +259,8 @@ span.country {
         background: unset;
         backdrop-filter: unset;
         position: unset;
+        margin-top: auto;
+        margin-bottom: 30px;
     }
     .weather-forecast-item {
         min-height: 165px;
@@ -256,7 +272,12 @@ span.country {
     }
     .submitSearch {
         height: 40px;
-        width: 40px;
+        width: 50px;
+        border-radius: 0px 17px 17px 0px;
+        border: 2px solid #010034;
+        border-left: 1px solid white;
+        background-color: #010034;
+
     }
     .searchImg {
         height: 25px;
@@ -264,15 +285,28 @@ span.country {
     }
     input[type='text'] {
         padding: 7px 14px;
-        max-width: 190px;
-        font-size: 1em;
+        max-width: 80%;
+        font-size: 1.1em;
+        border-radius: 17px 0px 0px 17px;
+        max-height: 40px;
+        border: 2px solid #000748;
+        background-color: #000748;
+        color: white;
+    }
+    input[type='text']::placeholder {
+        color: white;
     }
     .cityName {
-        font-size: 2.1em;
+        font-size: 2.3em;
+        font-weight: bold;
+    }
+    .feelsLike {
+        font-size: 0.9em;
     }
     span.country {
         margin-left: 7px;
         font-size: 0.4em !important;
+    
     }
   }
 
