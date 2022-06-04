@@ -222,6 +222,9 @@ span.country {
     .results {
         position: unset;
     }
+    .formDiv {
+        max-width: 90%;
+    }
     .results {
         min-height: unset;
         max-width: 90%;
@@ -261,6 +264,7 @@ span.country {
         position: unset;
         margin-top: auto;
         margin-bottom: 30px;
+        min-height: 205px;
     }
     .weather-forecast-item {
         min-height: 165px;
