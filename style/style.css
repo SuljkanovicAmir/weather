@@ -276,6 +276,7 @@ span.country {
     .submitSearch {
         height: 40px;
         width: 50px;
+        min-width: 50px;
         border-radius: 0px 17px 17px 0px;
         border: 2px solid #010034;
         border-left: 1px solid white;
@@ -294,6 +295,7 @@ span.country {
         border: 2px solid #000748;
         background-color: #000748;
         color: white;
+        width: 100%;
     }
     input[type='text']::placeholder {
         color: white;
