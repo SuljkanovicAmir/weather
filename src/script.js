@@ -1,11 +1,15 @@
 import moment from 'moment';
 
 
+
 let search = document.querySelector('.searchCity')
 let submitBtn = document.querySelector('.submitSearch')
 let results = document.querySelector('.results')
 let weeklyForecast = document.querySelector('.weeklyForecast')
 let frame = document.querySelector('.frame')
+let moon = document.querySelector('.moon')
+let stars = document.querySelector('.stars')
+let mainContainer = document.querySelector('.container')
 
 
 document.addEventListener("DOMContentLoaded", ( async() => {
@@ -24,7 +28,6 @@ submitBtn.addEventListener('click', async (e) => {
       } else {
         const weatherData = await getData(search.value)
         setResults(weatherData)
-        console.log(weatherData.longitude, weatherData.latitude)
         const weeklyWeatherData = await getOneCallData(weatherData.longitude, weatherData.latitude)
         setWeeklyResults(weeklyWeatherData)
       }
@@ -85,6 +88,7 @@ function convertData(data) {
         const searchResult = document.querySelector(".results");
         searchResult.classList.add("active");
         const dateAndTime = await getLocalTime(weatherData.timezone);
+        console.log(dateAndTime)
 
         
         const cityName = document.createElement('p')
@@ -155,13 +159,25 @@ function convertData(data) {
         temperature.classList.add('temperature')
         results.append(temperature)
 
+        const hours = new Date().getHours()
+        const isDayTime = hours > 6 && hours < 20
+        if(isDayTime) {
+            moon.style.display = 'none'
+        } else {
+            moon.style.display = 'flex'
+            stars.style.display = 'block'
+            mainContainer.style.background = 'linear-gradient(to bottom, #286475, #000509)';
+            
+        }
 
         if(weatherData.main[0].main != 'Rain') {
-            frame.style.display = 'none'
+            return
         } else {
             frame.style.display = 'flex'
         }  
-        console.log(weatherData.main[0].main === 'Rain')
+
+        
+        
         }
 
       
@@ -205,7 +221,7 @@ async function setWeeklyResults (weeklyWeatherData) {
 
 
  async function getLocalTime(data) {
-    let options = { hour: "2-digit", minute: "2-digit", month: 'long', day: 'numeric', hour12: false };
+    let options = { hour: "2-digit", minute: "2-digit", hour12: false };
     let date = new Date();
     let time = date.getTime();
     let localOffset = date.getTimezoneOffset() * 60000;
