@@ -5,7 +5,7 @@ let search = document.querySelector('.searchCity')
 let submitBtn = document.querySelector('.submitSearch')
 let results = document.querySelector('.results')
 let weeklyForecast = document.querySelector('.weeklyForecast')
-
+let frame = document.querySelector('.frame')
 
 
 document.addEventListener("DOMContentLoaded", ( async() => {
@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", ( async() => {
     setResults(weatherData)
     const weeklyWeatherData = await getOneCallData(weatherData.longitude, weatherData.latitude)
     setWeeklyResults(weeklyWeatherData)
-   
 }))
 
 
@@ -155,7 +154,14 @@ function convertData(data) {
         temperature.textContent = parseInt(`${weatherData.temperature}`) + '°C'
         temperature.classList.add('temperature')
         results.append(temperature)
-       
+
+
+        if(weatherData.main[0].main != 'Rain') {
+            frame.style.display = 'none'
+        } else {
+            frame.style.display = 'flex'
+        }  
+        console.log(weatherData.main[0].main === 'Rain')
         }
 
       
@@ -181,7 +187,6 @@ async function setWeeklyResults (weeklyWeatherData) {
             <div class="temp night">Night ${nightTemp}°C</div>
             <div class="temp">Day ${dayTemp}°C</div>
             </div>`;
-            console.log(source)
         } else {
             otherDayForecast += `
                 <div class="weather-forecast-item active">
@@ -211,3 +216,6 @@ async function setWeeklyResults (weeklyWeatherData) {
   }
 
 
+
+
+  
