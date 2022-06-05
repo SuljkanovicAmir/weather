@@ -211,27 +211,3 @@ async function setWeeklyResults (weeklyWeatherData) {
   }
 
 
-  let slider = document.querySelector('.slide')
-  let items = document.querySelectorAll('.weather-forecast-item')
-
-let myIndex = 1;
-
-async function showSlides(n) {
-    let results = await setWeeklyResults()
-    if (n > items.length) {myIndex = 1}
-    console.log(items.length)
-    if (n < 1) {myIndex = items.length}    
-    
-    items[myIndex-1].classList.add('active')
-    items.forEach((item) => {
-        item.classList.add('slide')
-    })
-}
-showSlides(myIndex)
-
-
-slider.addEventListener('click', (e) => {
-    e.preventDefault();
-    document.querySelector('.active').classList.remove('active');
-    showSlides(myIndex += 1)
-})

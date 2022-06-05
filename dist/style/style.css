@@ -210,7 +210,7 @@ span.country {
         align-items: center;
         padding-top: 50px;
         place-content: unset;
-        overflow: hidden;
+        overflow-x: hidden;
         background: linear-gradient(to bottom, #36b3d7, #0e334e);
     }
     .formDiv form {
@@ -222,7 +222,7 @@ span.country {
         position: unset;
     }
     .formDiv {
-        max-width: 90%;
+        max-width: 80%;
     }
     .results {
         min-height: unset;
@@ -287,8 +287,7 @@ span.country {
         width: 25px;
     }
     input[type='text'] {
-        padding: 7px 12px;
-        max-width: 80%;
+        padding: 7px 14px;
         font-size: 1.1em;
         border-radius: 17px 0px 0px 17px;
         max-height: 40px;
