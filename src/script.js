@@ -233,5 +233,16 @@ async function setWeeklyResults (weeklyWeatherData) {
 
 
 
+setTimeout(() => {
+        document.querySelector('.alert').classList.add('leave')
+        document.querySelector('.alert2').classList.add('leave')
+  },20000)
 
-  
+setTimeout(() => {
+    document.querySelector('.alert').classList.add('show')
+    document.querySelector('.alert2').classList.add('show')
+}, 15000)
+
+setTimeout(() => {
+    document.querySelector('.loading').classList.add('hide')
+}, 3000)

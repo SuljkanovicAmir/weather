@@ -234,7 +234,7 @@ span.country {
 	animation: moonrise 1.3s forwards ease-out;
     z-index: 0;
     box-shadow: 0 8px 32px 0 rgb(0 0 0 / 37%);
-    opacity: 0.9;
+    opacity: 0.7;
 }
 
 .moon_dot {
@@ -485,16 +485,109 @@ span.country {
     background-size: contain;
 }
 
+.alert {
+    color: white;
+    position: fixed;
+    bottom: 1%;
+    display: none;
+}
+
+
+.alert2 {
+    background: url('./img/output-onlinegiftools\ \(2\).gif');
+    position: fixed;
+    bottom: 10%;
+    right: 10%;
+    height: 70px;
+    width: 70px;
+    background-position: center;
+    filter: invert(0.5);
+    display: none;
+}
+.alert.show,
+.alert2.show {
+    display: flex;
+    animation: show 0.9s ease-in 0s normal none; 
+}
+
+.alert2.leave,
+.alert.leave {
+   animation: alerts 0.5s linear 0s normal forwards; 
+}
+
+@keyframes alerts {
+    0%{
+    transform: translate(0px);
+    }
+    50%{
+        transform: translate(0px);
+        opacity: 0.1;
+    }
+    65%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+        transform: translate(2000px);
+    }
+    }
+    
+    @keyframes show {
+        0%{
+            opacity: 0;
+        }
+        50%{
+            transform: translate(0px);
+            opacity: 0.5;
+        }
+        100%{
+            transform: translate(0px);
+            opacity: 1;
+        }
+}
+        
+.loading {
+    display: flex;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    backdrop-filter: blur(30px);
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loadingImg {
+    width: 100px;
+    height: 100px;
+    animation: bounce .8s cubic-bezier(.0, -.5, .2, 1.4) infinite alternate;
+}
+.loadingTxt {
+    position: absolute;
+    top: 10%;
+    text-align: center;
+    color: white;
+    font-size: 2.5em;
+    width: 60%;
+    border: 1px solid white;
+    padding: 5px;
+}
+
+.loading.hide {
+    animation: alerts 0.5s linear 0s normal forwards; 
+}
 
 
 
-
-
-
-
-
-
-
+@keyframes bounce {
+    100% {
+        transform: translate3d(0px, 50px, 0px)
+        scale3d(1, 1, 1)
+    }
+}
 
 
 
@@ -567,8 +660,11 @@ span.country {
         position: unset;
         margin-top: auto;
         min-height: 205px;
+        scroll-snap-type: x mandatory;
+
     }
     .weather-forecast-item {
+        scroll-snap-align: center;
         min-height: 165px;
         min-width: 140px;
         background: linear-gradient(135deg, rgb(162 122 122 / 50%), rgba(124, 98, 98, 0.2))
