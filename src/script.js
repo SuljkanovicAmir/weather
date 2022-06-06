@@ -245,4 +245,6 @@ setTimeout(() => {
 
 setTimeout(() => {
     document.querySelector('.loading').classList.add('hide')
+    document.querySelector('.loadingTxt').classList.add('hide')
+    document.querySelector('.loadingImg').classList.add('hide')
 }, 3000)
