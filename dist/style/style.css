@@ -482,6 +482,7 @@ span.country {
     background: transparent url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
     z-index:0;
     pointer-events: none;
+    background-size: contain;
 }
 
 
@@ -514,6 +515,7 @@ span.country {
         place-content: unset;
         overflow-x: hidden;
         background: linear-gradient(to bottom, #36b3d7, #0e334e);
+        padding-bottom: 20px;
     }
     .formDiv form {
         height: 41px;
@@ -564,7 +566,6 @@ span.country {
         backdrop-filter: unset;
         position: unset;
         margin-top: auto;
-        margin-bottom: 30px;
         min-height: 205px;
     }
     .weather-forecast-item {
@@ -632,6 +633,7 @@ span.country {
     .container {
         padding-top: 25px;
         width: 100%;
+        padding-bottom: 20px;
     }
     .results {
         margin-top: 20px;

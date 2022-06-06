@@ -166,7 +166,7 @@ function convertData(data) {
         } else {
             moon.style.display = 'flex'
             stars.style.display = 'block'
-            mainContainer.style.background = 'linear-gradient(to bottom, #286475, #000509)';
+            mainContainer.style.background = 'linear-gradient(rgb(14 70 86), rgb(1 17 29))';
             
         }
 
