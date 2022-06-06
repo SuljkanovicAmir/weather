@@ -579,6 +579,10 @@ span.country {
 .loading.hide {
     animation: alerts 0.5s linear 0s normal forwards; 
 }
+.loadingImg.hide,
+.loadingTxt.hide {
+   display: none;
+}
 
 
 
