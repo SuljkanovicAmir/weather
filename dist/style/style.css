@@ -153,7 +153,7 @@ span.country {
 .weeklyForecast {
     width: 100%;
     display: flex;
-    padding: 20px 0;
+    padding: 20px 20px;
     position: fixed;
     bottom: 0;
     justify-content: space-evenly;
@@ -164,7 +164,8 @@ span.country {
 
 .weather-forecast-item {
     min-height: 180px;
-    min-width: 150px;
+    width: 150px;
+    min-width: 100px;
     display: flex;
     color: white;
     flex-direction: column;
@@ -224,9 +225,9 @@ span.country {
     display: none;
     position: fixed;
     top: 100px;
-    left: 20px;
-    width: 80px;
-    height: 80px;
+    left: 100px;
+    width: 110px;
+    height: 110px;
 	background: #f6edbd;
 	border-radius: 50%;
 	box-shadow: 1px 1px 15px #f6edbd;
@@ -485,11 +486,62 @@ span.country {
     background-size: contain;
 }
 
+
+
+        
+.loading {
+    display: flex;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    backdrop-filter: blur(60px);
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loadingImg {
+    width: 150px;
+    height: 150px;
+    animation: bounce .8s cubic-bezier(.0, -.5, .2, 1.4) infinite alternate;
+}
+.loadingTxt {
+    position: absolute;
+    top: 10%;
+    text-align: center;
+    color: white;
+    font-size: 4em;
+    width: 42%;
+    border: 2px solid white;
+    padding: 15px;
+}
+
+.loading.hide {
+    animation: alerts 0.5s linear 0s normal forwards; 
+}
+.loadingImg.hide,
+.loadingTxt.hide {
+   display: none;
+}
+
+.formDiv span {
+    color: white;
+    position: absolute;
+    bottom: 200px;
+    text-align: center;
+    
+}
+
+
 .alert {
     color: white;
     position: fixed;
     bottom: 1%;
     display: none;
+    pointer-events: none;
 }
 
 
@@ -503,17 +555,19 @@ span.country {
     background-position: center;
     filter: invert(0.5);
     display: none;
-}
-.alert.show,
-.alert2.show {
-    display: flex;
-    animation: show 0.9s ease-in 0s normal none; 
+    pointer-events: none;
 }
 
-.alert2.leave,
-.alert.leave {
-   animation: alerts 0.5s linear 0s normal forwards; 
+
+
+
+@keyframes bounce {
+    100% {
+        transform: translate3d(0px, 50px, 0px)
+        scale3d(1, 1, 1)
+    }
 }
+
 
 @keyframes alerts {
     0%{
@@ -545,53 +599,6 @@ span.country {
             opacity: 1;
         }
 }
-        
-.loading {
-    display: flex;
-    position: fixed;
-    top: 0;
-    height: 100vh;
-    left: 0;
-    overflow: hidden;
-    width: 100%;
-    backdrop-filter: blur(30px);
-    z-index: 99;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.loadingImg {
-    width: 100px;
-    height: 100px;
-    animation: bounce .8s cubic-bezier(.0, -.5, .2, 1.4) infinite alternate;
-}
-.loadingTxt {
-    position: absolute;
-    top: 10%;
-    text-align: center;
-    color: white;
-    font-size: 2.5em;
-    width: 60%;
-    border: 1px solid white;
-    padding: 5px;
-}
-
-.loading.hide {
-    animation: alerts 0.5s linear 0s normal forwards; 
-}
-.loadingImg.hide,
-.loadingTxt.hide {
-   display: none;
-}
-
-
-
-@keyframes bounce {
-    100% {
-        transform: translate3d(0px, 50px, 0px)
-        scale3d(1, 1, 1)
-    }
-}
 
 
 
@@ -599,10 +606,7 @@ span.country {
 
 
 
-
-
-
-  @media screen and (max-width: 425px){
+  @media screen and (max-width: 768px){
     .container {
         display: flex;
         flex-direction: column;
@@ -650,7 +654,7 @@ span.country {
         font-family: unset;
     }
     .time {
-        color: rgba(255, 255, 255, 0.5);
+        color: white;
     }
     .weeklyForecast {
         width: 100%;
@@ -664,13 +668,10 @@ span.country {
         position: unset;
         margin-top: auto;
         min-height: 205px;
-        scroll-snap-type: x mandatory;
-
     }
     .weather-forecast-item {
-        scroll-snap-align: center;
         min-height: 165px;
-        min-width: 140px;
+        min-width: 100%;
         background: linear-gradient(135deg, rgb(162 122 122 / 50%), rgba(124, 98, 98, 0.2))
     }
     .weeklyForecast::-webkit-scrollbar { 
@@ -680,28 +681,31 @@ span.country {
         height: 40px;
         width: 50px;
         min-width: 50px;
-        border-radius: 0px 17px 17px 0px;
-        border: 2px solid #010034;
-        border-left: 1px solid white;
-        background-color: #010034;
+        border-radius: 0px 20px 20px 0px;
+        border: 2px solid #e9e9e9;
+        border-left: 1px solid #e9e9e9;
+        background-color: #e9e9e9;
 
     }
     .searchImg {
         height: 25px;
         width: 25px;
+        filter: invert(1);
     }
     input[type='text'] {
         padding: 7px 14px;
         font-size: 1.1em;
-        border-radius: 17px 0px 0px 17px;
+        border-radius: 20px 0px 0px 20px;
         max-height: 40px;
-        border: 2px solid #000748;
-        background-color: #000748;
-        color: white;
+        border: 2px solid #ffffff;
+        background-color: #ffffff;
+        color: black;
         width: 100%;
+        font-weight: 600;
     }
     input[type='text']::placeholder {
-        color: white;
+        color: darkgray;
+        font-weight: 100;
     }
     .cityName {
         font-size: 2.3em;
@@ -719,15 +723,39 @@ span.country {
         top: 160px;
         left: 20px;
     }
+    .loading {
+        backdrop-filter: blur(30px);
+    }
+    .loadingTxt {
+        top: 10%;
+        text-align: center;
+        color: white;
+        font-size: 2.5em;
+        width: 60%;
+        border: 1px solid white;
+        padding: 5px
+    }
+    .loadingImg {
+        width: 100px;
+        height: 100px;
+    }
+
+    .alert.show,
+    .alert2.show {
+        display: flex;
+        animation: show 0.9s ease-in 0s normal none; 
+    }
+    
+    .alert2.leave,
+    .alert.leave {
+       animation: alerts 0.5s linear 0s normal forwards; 
+    }
+    
   }
 
-.formDiv span {
-    color: white;
-    position: absolute;
-    bottom: 200px;
-    text-align: center;
-    
-}
+
+
+
 
 @media screen and (max-width: 425px) and (max-height: 750px) {
     .container {
@@ -752,5 +780,61 @@ span.country {
 
 }
 
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .results {
+        font-size: 1.2em;
+        min-height: 320px;
+        min-width: 270px;
+    }
+    .moon {
+        display: none;
+        position: fixed;
+        top: 100px;
+        left: 100px;
+        width: 80px;
+        height: 80px;
+    }
+    .weather-forecast-item {
+        min-height: 150px;
+        width: 140px;
+        min-width: 90px;
+        display: flex;
+        color: white;
+        flex-direction: column;
+        text-align: center;
+        border-radius: 15px;
+        padding: 5px;
+        font-size: 0.8em;
+    }
+    input[type='text'] {
+        padding: 5px 10px;
+    }
+    .submitSearch {
+        height: 37px;
+        width: 37px;
+    }
+    .searchImg {
+        height: 25px;
+        width: 25px;
+    }
+    .loadingTxt {
+        font-size: 3em;
+    }
+}
 
 
+
+@media screen and (min-width: 500px) and (max-width: 768px) {
+    .results {
+      width: 70%;
+      min-width: 60%;
+    }
+    .weeklyForecast {
+      padding: 20px 25% 20px 25%;
+    }
+    .weather-forecast-item {
+      min-height: 165px;
+      min-width: 100%;
+      background: linear-gradient(135deg, rgb(162 122 122 / 50%), rgba(124, 98, 98, 0.2));
+    }
+}
