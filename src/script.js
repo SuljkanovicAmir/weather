@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", ( async() => {
 submitBtn.addEventListener('click', async (e) => {
     e.preventDefault()
     if (search.value == '') {
-        console.log('hi');
         return false 
       } else {
         const weatherData = await getData(search.value)
@@ -55,14 +54,16 @@ function convertData(data) {
             results.innerHTML = '';
             search.value = '';
             const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=ea323c85ab2318ddfec06fad9a7c3ae6&units=metric`, { mode: "cors" })
-            const data = convertData(await response.json())
-            return data;
-        } catch(err) {
-            console.log(err)
-            return null;
+             if (response.status  === 404) {
+                const weatherData = await getData('Sarajevo')
+                setResults(weatherData)
+              } else {
+                const data = convertData(await response.json())
+                return data;
+              }
+            } catch (err) {
+                console.log(err)
             }
-
-          
         } 
 
         async function getOneCallData(longitude, latitude) {
@@ -88,7 +89,7 @@ function convertData(data) {
         const searchResult = document.querySelector(".results");
         searchResult.classList.add("active");
         const dateAndTime = await getLocalTime(weatherData.timezone);
-        console.log(dateAndTime)
+
 
         
         const cityName = document.createElement('p')
@@ -177,8 +178,7 @@ function convertData(data) {
         }  
 
         
-        
-        }
+    }
 
       
      
@@ -247,4 +247,9 @@ setTimeout(() => {
     document.querySelector('.loading').classList.add('hide')
     document.querySelector('.loadingTxt').classList.add('hide')
     document.querySelector('.loadingImg').classList.add('hide')
-}, 4000)
+}, 2000)
+
+
+
+
+
